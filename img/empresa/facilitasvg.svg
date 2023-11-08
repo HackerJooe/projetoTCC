@@ -1,0 +1,13 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="150" height="150">
+	<title>Novo Projeto</title>
+	<defs>
+		<image  width="64" height="38" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAmAQMAAABOCg/aAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAAMwcIwtD88wAAAAJ0Uk5TAP9bkSK1AAAAFUlEQVR4nGNgoANg/g8Ef+jMGEgAAI4TQMCBQz5FAAAAAElFTkSuQmCC"/>
+		<image  width="64" height="35" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAjAQMAAAAex55pAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA6EYkmLY0hQAAAAJ0Uk5TAP9bkSK1AAAAFElEQVR4nGNgoBZg/v//H90ZAwkAKNUm9Fr7zAEAAAAASUVORK5CYII="/>
+		<image  width="50" height="39" id="img3" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAnAQMAAAB36onaAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA6NgmmXryPQAAAAJ0Uk5TAP9bkSK1AAAAE0lEQVR4nGNgoDdg/v+DpjR9AAAjhhe5OV/tkgAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Forma 1" href="#img1" x="0" y="0"/>
+	<use id="Forma 2" href="#img2" x="0" y="17"/>
+	<use id="Forma 3" href="#img3" x="0" y="25"/>
+</svg>

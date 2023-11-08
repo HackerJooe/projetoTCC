@@ -1,0 +1,1996 @@
+/* light */
+.darkTheme {
+    --bg-color: #ffffff;
+    --bg-cont: #000000;
+    --search-color: #fff;
+    --txt-color: #000000;
+    --span-color: #aaa;
+    --shadow-color: #aaa;
+}
+/* dark */
+.lightTheme {
+    --bg-color: #000000;
+    --bg-cont: #fff;
+    --search-color: #000;
+    --txt-color: #ffffff;
+    --span-color: #aaa;
+    --shadow-color: #aaa;
+}
+
+/* NIVEL GERAL */
+body {
+    background: var(--bg-color);
+    transition: background 0.2s linear;
+}
+.subtitulo-titulo {
+    text-align: center;
+    font-size: 28px;
+    color: var(--txt-color);
+    font-family: 'Agbalumo';
+    font-style: italic;
+}
+/* NAVBAR */
+header .navbar {
+    margin: 0;
+    padding: 0;
+}
+header .container-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.navbar-brand {
+    position: relative;
+}
+header nav a #logo {
+    width: 50px;
+}
+#title-logo {
+    color: var(--txt-color);
+    position: absolute;
+    bottom: 4px;
+    font-size: 30px;
+    left: 30px;
+    font-weight: bold;
+}
+#main-navbar {
+    background: var(--bg-color);
+}
+#buscar-form {
+    margin: 0 auto;
+    border: 2px solid var(--bg-cont);
+    border-radius: 7px;
+    margin-left: 10px; 
+}
+#buscar-form .form-control {
+    border: none;
+    background-color: var(--search-color);
+    color: var(--txt-color);
+    width: 90%;
+    box-shadow: none ;
+}
+#buscar-form .form-control::placeholder {
+    color: var(--txt-color);
+}
+#buscar-form .btn i {
+    color: var(--bg-cont);
+}
+#navbar {
+    min-width: 30%;
+    text-align: center; 
+}
+.navbar-expand-lg, .navbar-collapse {
+    flex-grow: 0;
+}
+header nav .container-fluid .collapse ul li .nav-link {
+    color: var(--txt-color);
+}
+
+/* SWITCH THEME */
+#switchThemeDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 70px;
+    margin: 0;
+    transition: background 0.2s linear;
+}
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+.label {
+    width: 3.5em;
+    height: 1.6em;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 25px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4) ;
+    cursor: pointer;
+    transition: 0.9s;
+}
+.label:after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    right: auto;
+    background: linear-gradient(180deg, #ffcc89, #d8860b );
+    border-radius: 50%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.9s;
+
+}
+.checkbox:checked + .label {
+    background-color: #242424;
+}
+.checkbox:checked + .label:after {
+    left: auto;
+    right: 3px;
+   
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+.label:active:after{
+    width: 30px;
+}
+.background {
+    transition: .9s;
+    background: #fff;
+}
+.checkbox:checked + .label + .background {
+    background: #242424;
+}
+.label svg {
+    position: absolute;
+    width: 20px;
+    top: 2px;
+    z-index: 1;
+}
+.label svg.sun {
+    left: 4px;
+    fill: #fc8f00;
+    transition: .9s;
+}
+.label svg.moon {
+    left: 30px;
+    fill: #ffffff;
+    transition: .9s;
+}
+.checkbox:checked + .label svg.sun {
+    fill: #ccc;
+    stroke: #ffffff;
+}
+.checkbox:checked + .label svg.moon {
+    fill: #ffffff;
+    stroke: #ffffff;
+}
+
+/* MENSAGENS */
+.bold {
+    font-weight: bold;
+}
+.msg-container {
+    background-color: #ffffff00;
+    padding: 5px;
+}
+.msg {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 2px 10px;
+    border: solid 1px #000;
+}
+.msg.error {
+    color: red;
+    background-color: #e0bdbd;
+    border-color: #dd8c94;
+}
+.msg.sucess {
+    color: green;
+    background-color: #a9cf9e;
+    border-color: #7bd3ab;
+}
+
+/* CORPO DO SITE BODY */
+
+#main-container {
+    background-color: var(--bg-color);
+    color: #000000;
+    min-height: 80vh;
+}
+#login-container,#registros-container,
+#main-container #add-domicilio-form {
+    background-color: #001aff4f;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 20px auto;
+}
+#main-container .section-titulo {
+    margin-top: 10px;
+    margin-left: 1.5rem;
+    border-bottom: 3px solid #e8d826;
+    border-left: 3px solid #e8d826;
+    width: 40%;
+    font-size: 33px;
+    padding-left: 20px;
+    font-family: 'Roboto Mono';
+    color: var(--txt-color);
+}
+
+
+.row {
+    margin: 0 auto;
+}
+.col {
+    margin-bottom: 40px;
+    max-width: 33.33%;
+}
+
+.favoritar-btn {
+    margin-bottom: 15px;
+    background-color: #e8a726;
+    border-color: #ffffff;
+    width: 90%;
+}
+
+.favoritar-btn:hover, .card-btn2:hover{
+    font-weight: bold;
+    background-color: #fff;
+    border-color: #e8a726;
+    color: #e8a726;
+}
+.col .domicilio-card .card-img-top {
+    height: 200px;
+    width: 90%;
+    margin: 10px auto;
+    background-size: cover;
+    background-position: center;
+}
+.table-infor {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.card-btn2 {
+    margin-bottom: 15px;
+    background-color: #e8a726;
+    border-color: #ffffff;
+    width: 90%;
+}
+
+
+.d-flex p{
+    margin-left: 5px;
+}
+
+.card-header, .card-header p {
+    margin: 0;
+    padding: 0;
+}
+
+.card-body {
+    background-color: rgba(0, 0, 0, 0.466);
+    padding: 0.5em;
+}
+
+.card-body h5 {
+    margin: 0;
+    line-height: 0.9;
+    text-transform: capitalize;
+}
+
+.card-header {
+    padding-top: .2em;
+    border-bottom: 0;
+    line-height: 0;
+    text-align: end;
+    font-size: 13px;
+    color: #6d6d6d;
+    border: none;
+}
+
+.bandeiras {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.letra-span {
+    margin-left: 15px;
+}
+
+
+.row-cols-md-4>* {
+    width: 33%;
+}
+
+.bold {
+    font-weight: bold;
+}
+hr {
+    border-color: #000000;
+}
+
+/* LOGIN / CADASTRO */
+
+#auth-row {
+    justify-content: space-evenly;
+}
+
+#login-container h2, 
+#registros-container h2 {
+    text-align: center;
+    border-bottom:  3px solid #330708 ;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#login-container form, #registros-container form {
+    max-width: 400px;
+    margin: 30px auto;
+    border: 3px solid #330708;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#registros-container .card-group2 {
+    text-align: center;
+    padding: 5px 0px 0px 0px;
+}
+
+.card-btn {
+    color: #330708;
+    background-color: #e8d826;
+    border: 1px solid #330708;
+    width: auto;
+    
+}
+
+.card-btn:hover {
+    background-color: #e8a726;
+    font-weight: bold;
+}
+
+/* EDICAO DE PERFIL */
+
+#profile-image-container {
+    width: 150px;
+    height: 150px;
+    border: 6px solid #e8d826;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    margin: 15px auto;
+}
+.page-description {
+    color: #999999;
+}
+
+#bio {
+    max-width: 400px;
+}
+
+.form-group .disabled {
+    background-color: #ccc;
+}
+/* DOMICILIOS ADICIONAR */
+
+#add-domicilio-form h2 {
+    border-bottom:  3px solid #330708 ;
+    width: 250px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+/* FOOTER */
+
+#footer {
+    background-color: #e8a726;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    margin-top: 50px;
+}
+
+#social-container ul, #footer-links-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#social-container li, #footer-links-container li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#social-container li {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    transition: .5s;
+    line-height: 3;
+}
+
+#social-container li .fa-instagram {
+    color: rgba(255,0,105,1);   
+}
+
+#social-container li.instagram:hover {
+    background: linear-gradient(90deg, rgba(255,214,0,1) 0%, rgba(255,122,0,1) 25%, rgba(255,0,105,1) 50%, rgba(211,0,197,1) 75%, rgba(118,56,250,1) 100%);
+}
+
+#social-container li i.fa-instagram:hover {
+    color: #fff;
+}
+
+#social-container li .fa-facebook-square {
+    color: blue;
+}
+
+#social-container li.facebook:hover {
+    background-color: #001aff;
+}
+
+#social-container li i.fa-facebook-square:hover{
+    color: #fff;
+}
+
+
+#social-container li .fa-youtube {
+    color: rgb(255, 0, 0);
+}
+
+#social-container li.youtube:hover {
+    background: linear-gradient(90deg, rgb(255, 38, 0) 0%,  rgb(255, 0, 55) 50%,  rgb(255, 38, 0) 100%);
+}
+
+#social-container li i.fa-youtube:hover{
+    color: #fff;
+}
+
+#social-container a, #footer-links-container a {
+    transition: .5s;
+}
+
+#social-container li i {
+    font-size: 25px;
+    padding:7px;
+}
+
+#footer-links-container {
+    margin:  30px 0;
+}
+
+
+/* CARROUSEL */
+.carousel-img {
+    width: 100vw;
+    height: 75vh;
+}
+.text-bg-light {
+    max-width: 500px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+.lead {
+    color: #000;
+    font-weight: bold;
+    background-color: #fff;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+}
+.typedom {
+    position: absolute;
+    color: #0026ff;
+    text-transform: uppercase;
+    padding: 12px;
+    background-color: #fff;
+    margin: 5px;
+    right: 150px;
+    left: auto;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 150px;
+    height: 60px;
+    font-family: 'Nunito', sans-serif;
+}
+.typedom .titulo-type {
+    position: absolute;
+    top: 0;   
+    font-size: 10px;
+    border-bottom: 1px solid #e8d826;
+}
+.typedom .titulo-metragem {
+    position: absolute;
+    top: 31px;
+    left: 13px;
+    right: auto;
+}
+.btn-carousel {
+    margin: 10px auto;
+    width: 11.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+div .gallery-wrapper .section-titulo {
+    margin-left: 1.5rem;
+    border-bottom: 3px solid #e8d826;
+    border-left: 3px solid #e8d826;
+    width: 40%;
+    font-size: 33px;
+    padding-left: 20px;
+    font-family: 'Roboto Mono';color: var(--txt-color);
+}
+
+/* Dashboard */
+#main-container .info_dash {
+    margin-left: 30px;
+}
+#main-container #add-domicilio-container {
+    margin: 5px 20px 10px 0;
+    text-align: right;
+}
+#main-container #add-domicilio-container .card-btn {
+    background-color: #e8d826;
+}
+#main-container #add-domicilio-container .card-btn:hover {
+    scale: 1.1;
+    color: #fff;
+    background-color: #e8a726;
+}
+#domicilios-dashboard .table {
+    color: #000;
+}
+#domicilios-dashboard .table th{
+    border-top: none;
+    /* width: auto; */
+}
+#domicilios-dashboard .table tr{
+    padding: 10px 0;
+    /* width: auto; */
+}
+.table-domicilio-tipodom {
+    color: #000;
+    border-bottom: none;
+    font-weight: bold;
+    transition: .5s;
+}
+.table-domicilio-cidade,
+.table-domicilio-complemento,
+.table-domicilio-caracteristicas,
+.table-domicilio-caracteristicasadc,
+.table-domicilio-tipodom,
+.table-domicilio-descricao,
+.table-domicilio-endereco {
+    text-transform: capitalize;
+}
+.action-column {
+    text-align: center;
+}
+.action-column i{
+    font-weight: 600;
+    font-size: 1em;
+}
+.action-column i.edit-btn {
+    background-color: #e8d826;
+    padding: 7px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.action-column i.edit-btn:hover {
+    background-color: #e8a726;
+    color: #fff;
+    scale: 1.1;
+}
+.action-column i.delete-btn {
+    background-color: tomato;
+    padding: 7px;
+    border-radius: 10px;
+}
+.action-column i.delete-btn:hover{
+    background-color: red;
+    color: #fff;
+    scale: 1.1;
+}
+.car-column {
+    max-width: 300px;
+}
+.desc-column {
+    max-width: 400px;
+}
+.tipo-column {
+    width: 80px;
+}
+#main-container .row .domicilio-container .titulo-domicilio{
+    width: 80%;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    grid-column: 1/5;
+}
+#domicilio-view {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#domicilio-view .titulo-domicilio {
+    grid-column: 1/1;
+    width: 80%;
+}
+#domicilio-view .imagens-domicilio {
+    display: grid;
+    grid-area: 2/1;
+    grid-template-columns: auto auto;
+    padding: 5px;
+}
+#domicilio-view .dados-domicilio {
+    display: grid;
+    grid-area: 2/2;
+}
+#domicilio-view .imagens-domicilio > div {
+    margin: 10px;
+}
+#domicilio-view .imagens-domicilio > div > img {
+    width: 300px;
+    height: 145px;
+}
+#domicilio-view .imagens-domicilio #imagem1 {
+    grid-row: 1 / span 4;
+}
+#domicilio-view .imagens-domicilio #imagem1 img {
+    width: 350px;
+    height: 480px;
+    margin: 0;
+    padding: 0;
+}
+.list-caract {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.list-caract li {
+    list-style: circle;
+    padding: 7px;
+    text-transform: capitalize;
+    color: #fff;
+}
+.dados-domicilio .card{
+    background-color: rgb(90, 120, 255);
+}
+.ativo {
+    background-color: blue;
+    width: auto;
+    transform: translateX(10px);
+    color: #fff;
+    font-weight: 700;
+}
+.card-header ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px 10px 0 0;
+}
+#btnaba1, #btnaba2 {
+    text-decoration: none;
+    font-family: 'Nunito';
+    font-size: 1.17rem;
+    color: #fff;
+}
+#aba1 h5 {
+    margin-bottom: 10px;
+    color: #fff;
+    letter-spacing: 3px;
+}
+#aba2 h6 {
+    color: #fff;
+    font-size: 1.19em;
+    text-decoration: underline white;
+}
+#aba1 .table {
+    border-color: transparent;
+    background-color: transparent;
+    --bs-table-bg: rgba(85, 85, 245, 0.884);
+}
+#aba1 .table tr, #aba2 {
+    font-family: 'Roboto Mono';
+}
+#aba2 .descricao {
+    color: #fff;
+}
+#aba1 .table tr td{
+    color: #fff;
+}
+#aba1 .btn-primary, #aba2 .btn-primary{
+    background-color: #e8d826;
+    text-transform: uppercase;
+    font-family: 'Roboto Mono';
+    font-weight: bold;
+    transition: .3s ease-in-out;
+}
+#aba2 .btn-primary{
+    margin-top: 20px;
+}
+#aba1 .btn-primary:hover {
+    background-color: #e8a726;
+}
+
+@media (min-width: 270px) and (max-width: 320px) {
+    /* GERAIS */
+    body {
+        width: 100vw;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .card {
+        margin: 0 0 10px 0;
+    }
+    /* HEADER */
+    header nav div {
+        text-align: center;
+    }
+    header nav div .navbar-toggler {
+        margin-left: 0em;
+    }
+    #title-logo {
+        bottom: 4px;
+    }
+    #buscar-form {
+        width: 100%;
+    }
+    /* INDEX DIV´S */
+    .subtitulo-titulo{
+        font-size: 1.1em;
+        text-transform: capitalize;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.5rem;
+        padding-left: 5px;
+        margin-left: .7rem;
+        width: 60%;
+        color: #000;
+    }
+    #main-container .row .domicilio-container .titulo-domicilio {
+        font-size: 1.06rem;
+        margin-left: .5rem;
+        padding-left: .5rem;
+    }
+    #main-container .section-titulo {
+        font-size: 1.06rem;
+        margin-left: .5rem;
+        padding-left: .5rem;
+        width: 50%;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: .8rem;
+        font-weight: bold;
+    }
+    /* INDEX CARD´S */
+    .card-header {
+        font-family: 'Roboto Mono';
+        background-color: #ccc;
+        padding: .5em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+        color: #fff;
+    }
+    .card-body h5 {
+        font-size: 1.03rem;
+    }
+    .d-flex p {
+        font-size: .9rem;
+        margin-bottom: .5rem;
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #fff;
+        border-color: #fff;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none {
+        display: block !important;
+    }
+    .d-none .text-bg-light {
+        max-width: 300px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 300px;
+        font-size: .7rem;
+    }
+    /* ACCORDION DIV´S */
+    .accordion {
+        margin: 0px 10px 0px 10px;
+    }
+    .accordion .accordion-item .accordion-header button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: .8rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    }
+   /* DOMICILIOS DIV´S */
+   #domicilio-view {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    #domicilio-view .imagens-domicilio {
+        grid-area: 2 / span 4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #domicilio-view .imagens-domicilio #imagem1 { 
+        grid-area: 1 / span 3;
+        width: 95%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .imagens-domicilio > div  {
+        display: flex;
+    }
+    #domicilio-view .imagens-domicilio > div > img {
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+        grid-area: 3 / span 4;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+    #btnaba1, #btnaba2 {
+        font-size: 1em;
+        margin: .3rem;
+        padding: .3rem;
+    }
+    #aba1 h5 {
+        font-size: 1.03em;
+    }
+    #aba2 h6 {
+        font-size: 1.03em;
+    }
+    #aba1 .table tr td {
+        font-size: .8em;
+    }
+    .card-body .list-caract {
+        text-align: start;
+    }
+    .list-caract li {
+        font-size: .9em;
+    }
+    .dados-domicilio .card .card-body {
+        text-align: center;
+    }
+}
+@media (min-width: 321px) and (max-width: 399px) {
+    body {
+        width: 100vw;
+    }
+    .col-md-3 {
+        margin: 0px 0px 10px 0px;
+    }
+    .accordion {
+        margin: 10px 10px;
+    }
+    .accordion-body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    header nav div {
+        text-align: center;
+    }
+    header nav div .navbar-toggler {
+        margin-left: 9em;
+    }
+    #title-logo {
+        bottom: 4px;
+    }
+    #buscar-form {
+        width: 100%;
+    }
+    .subtitulo-titulo{
+        font-size: 1.1em;
+        text-transform: capitalize;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.5rem;
+        padding-left: 5px;
+        margin-left: .7rem;
+        width: 50%;
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.5rem;
+        padding-left: 5px;
+        width: 50%;
+    }
+    #main-container .row .domicilio-container .titulo-domicilio {
+        font-size: 1.15em;
+        margin-left: 0;
+        grid-area: 1 / span 4;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    /* INDEX CARD´S */
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none {
+        display: block !important;
+    }
+    .d-none .text-bg-light {
+        max-width: 300px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 300px;
+        font-size: .7rem;
+    }
+    /* ACCORDION DIV´S */
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: .9rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    }
+    /* DOMICILIOS DIV´S */
+    #domicilio-view {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    #domicilio-view .imagens-domicilio {
+        grid-area: 2 / span 4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #domicilio-view .imagens-domicilio #imagem1 { 
+        grid-area: 1 / span 3;
+        width: 95%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .imagens-domicilio > div  {
+        display: flex;
+    }
+    #domicilio-view .imagens-domicilio > div > img {
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+        grid-area: 3 / span 4;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+    #btnaba1, #btnaba2 {
+        font-size: 1em;
+    }
+    #aba1 h5 {
+        font-size: 1.06em;
+    }
+    #aba2 h6 {
+        font-size: 1.06em;
+    }
+    #aba1 .table tr td {
+        font-size: .8em;
+    }
+    .card-body .list-caract {
+        text-align: start;
+    }
+    .list-caract li {
+        font-size: .9em;
+    }
+    .dados-domicilio .card .card-body {
+        text-align: center;
+    }
+ }
+@media (min-width: 400px) and (max-width: 500px) {
+    /* GERAIS */
+    body {
+        width: 100vw;
+    }
+    .col-md-3 {
+        margin: 10px auto;
+    }
+    /* HEADER */
+    header nav div {
+        text-align: center;
+    }
+    header nav div .navbar-toggler {
+        margin-left: 13em;
+    }
+    #title-logo {
+        bottom: 4px;
+    }
+    #buscar-form {
+        width: 100%;
+    }
+    /* INDEX DIV´S */
+    .subtitulo-titulo{
+        font-size: 1.2em;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.7rem;
+        padding-left: 5px;
+        margin-left: .7rem;
+        width: 40%;
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.7rem;
+        padding-left: 5px;
+        width: 50%;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /* INDEX CARD´S */
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none {
+        display: block !important;
+    }
+    .d-none .text-bg-light {
+        max-width: 300px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 300px;
+        font-size: .9rem;
+    }
+    /* ACCORDION DIV´S */
+    .accordion {
+        margin: 10px 10px;
+    }
+    .accordion-body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.1rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    } 
+    /* DOMICILIOS DIV´S */
+    #domicilio-view {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    #domicilio-view .imagens-domicilio {
+        grid-area: 2 / span 4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #domicilio-view .imagens-domicilio #imagem1 { 
+        grid-area: 1 / span 3;
+        width: 95%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .imagens-domicilio > div  {
+        display: flex;
+    }
+    #domicilio-view .imagens-domicilio > div > img {
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+        grid-area: 3 / span 4;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+ }
+ @media (min-width: 501px) and (max-width: 600px) {
+    /* GERAIS */
+    body {
+        width: 100vw;
+    }
+    .col-md-3 {
+        margin: 10px auto;
+    }
+    /* HEADER */
+    header nav div {
+        text-align: center;
+    }
+    header nav div .navbar-toggler {
+        margin-left: 18em;
+    }
+    #title-logo {
+        bottom: 4px;
+    }
+    #buscar-form {
+        width: 100%;
+    }
+    /* INDEX DIV´S */
+    .subtitulo-titulo{
+        font-size: 1.2em;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.7rem;
+        padding-left: 5px;
+        margin-left: .7rem;
+        width: 40%;
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.7rem;
+        padding-left: 5px;
+        width: 50%;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /* INDEX CARD´S */
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none {
+        display: block !important;
+    }
+    .d-none .text-bg-light {
+        max-width: 300px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 300px;
+        font-size: .9rem;
+    }
+    /* ACCORDION DIV´S */
+    .accordion {
+        margin: 10px 10px;
+    }
+    .accordion-body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.1rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    } 
+    /* DOMICILIOS DIV´S */
+    #domicilio-view {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #domicilio-view .imagens-domicilio {
+        width: 100%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .imagens-domicilio > div > img {
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+    /* FOOTER DIV */
+    #footer {
+        margin-top: 50px;
+    }
+ }
+ @media (min-width: 601px) and (max-width: 768px) {
+    /* GERAIS */
+    body {
+        width: 100vw;
+    }
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 45%;
+    }
+    h5 {
+        font-size: 1.15rem;
+    }
+    /* HEADER */
+    header nav div {
+        text-align: center;
+    }
+    header nav div .navbar-toggler {
+        margin-left: 23em;
+    }
+    #title-logo {
+        bottom: 4px;
+    }
+    #buscar-form {
+        width: 100%;
+    }
+    /* INDEX DIV´S */
+    .subtitulo-titulo{
+        font-size: 1.2em;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.7rem;
+        padding-left: 5px;
+        margin-left: .7rem;
+        width: 40%;
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.7rem;
+        padding-left: 5px;
+        width: 50%;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /* INDEX CARD´S */
+    .card-header {
+        font-size: 16px;
+    }
+    .card-body div p i {
+        font-weight: 700;
+        font-size: .8rem;
+        margin: 0;
+        padding: 0;
+    }
+    .card-img-top {
+        margin: 0 auto;
+        width: 200px;
+        height: 175px;
+    }
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none {
+        display: block !important;
+    }
+    .d-none .text-bg-light {
+        max-width: 300px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 300px;
+        font-size: .9rem;
+    }
+    /* ACCORDION DIV´S */
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.1rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    } 
+    /* DOMICILIOS DIV´S */
+    #domicilio-view {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #domicilio-view .imagens-domicilio {
+        width: 100%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .imagens-domicilio > div > img {
+        width: 100%;
+        height: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+    
+    /* FOOTER DIV */
+    #footer {
+        margin-top: 50px;
+    }
+ }
+ @media (min-width: 769px) and (max-width: 991px) {
+    /* GERAIS */
+    body {
+        width: 100vw;
+    }
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 30%;
+    }
+    .card-header {
+        font-size: 16px;
+    }
+    h5 {
+        font-size: 1.15rem;
+    }
+    .card-body div p i {
+        font-weight: 700;
+        font-size: .8rem;
+        margin: 0;
+        padding: 0;
+    }
+    .card-img-top {
+        margin: 0 auto;
+        width: 200px;
+        height: 175px;
+    }
+    /* HEADER */
+    header nav div {
+        text-align: center;
+    }
+    header nav div .navbar-toggler {
+        margin-left: 31em;
+    }
+    #buscar-form {
+        width: 100%;
+    }
+    /* INDEX DIV´S */ 
+    .subtitulo-titulo{
+        font-size: 1.2em;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.7rem;
+        padding-left: 5px;
+        margin-left: .7rem;
+        width: 40%;
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.7rem;
+        padding-left: 5px;
+        width: 50%;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /* INDEX CARD´S */
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none {
+        display: block !important;
+    }
+    .d-none .text-bg-light {
+        max-width: 300px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 300px;
+        font-size: .9rem;
+    }
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    /* ACCORDION DIV´S */
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.1rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    } 
+    /* DOMICILIOS DIV´S */
+    #domicilio-view {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #domicilio-view .imagens-domicilio {
+        width: 100%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+    /* FOOTER DIV */
+    #footer {
+        margin-top: 50px;
+    }
+    
+    
+ }
+ @media (min-width: 992px) and (max-width: 1025px) {
+    /* HEADER */
+    #title-logo {
+        bottom: 4px;
+    }
+    header nav .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-item {
+        align-self: center;
+    }
+    .nav-link {
+        font-size: 1em;
+    }
+    .nav-item button.btn {
+        padding: 0;
+    }
+    /* GERAL */
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 30%;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    /* INDEX CARD´S */
+    .card-img-top {
+        margin: 0 auto;
+        width: 200px;
+        height: 175px;
+    }
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none .text-bg-light {
+        max-width: 500px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 400px;
+        font-size: .9rem;
+    }
+    /* INDEX DIV´S */
+    .subtitulo-titulo{
+        font-size: 1.9em;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.9rem;
+        padding-left: 10px;
+        margin-left: .7rem;
+        width: 20%;
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.9rem;
+        padding-left: 5px;
+        width: 40%;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.1rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    } 
+    /* DOMICILIOS DIV´S */
+    #domicilio-view {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #domicilio-view .imagens-domicilio {
+        width: 100%;
+    }
+    #domicilio-view .imagens-domicilio #imagem1 img{
+        width: 100%;
+    }
+    #domicilio-view .dados-domicilio {
+        width: 100%;
+    }
+    .dados-domicilio .card .card-header{
+        padding: 0;
+    }
+    .dados-domicilio .card .card-header ul {
+        margin: 10px 5px 0 0;
+    }
+    #footer {
+        margin-top: 50px;
+    }
+ }
+ @media (min-width: 1026px) and (max-width: 1199px) {
+    #title-logo {
+        bottom: 4px;
+    }
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 30%;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    .card-img-top {
+        margin: 0 auto;
+        width: 200px;
+        height: 175px;
+    }
+    header nav .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-item {
+        align-self: center;
+    }
+    .nav-link {
+        font-size: 1em;
+    }
+    
+    .subtitulo-titulo{
+        font-size: 1.9em;
+        margin-bottom: .1rem;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 1.9rem;
+        padding-left: 10px;
+        margin-left: .7rem;
+        width: 20%;
+    }
+    #main-container .row .domicilio-container .titulo-domicilio {
+        width: 40%
+    }
+    #main-container .section-titulo {
+        margin-left: .7rem;
+        font-size: 1.9rem;
+        padding-left: 5px;
+        width: 40%;
+    }
+    .typedom {
+        right: 0px;
+        width: 135px;
+    }
+    .d-none .text-bg-light {
+        max-width: 500px;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .lead{
+        max-width: 400px;
+        font-size: .9rem;
+    }
+    .btn-carousel {
+        margin: 5px auto;
+        width: 10em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .card-header {
+        font-family: 'Roboto Mono';
+        padding: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+    }
+    .card-body {
+        font-family: 'Roboto Mono';
+    }
+    .card-body .favoritar-btn, .card-body .card-btn2 {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.1rem;
+    }
+    .bandeiras {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    } 
+ }
+ /* TAMANHO NORMAL MEU LAPTOP */
+ @media (min-width: 1200px) and (max-width: 1440px) {
+    .nav-item button.btn {
+        padding: 0;
+        margin-right: 10px;
+    }
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 23%;
+    }
+    header nav .container-fluid {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    #main-container .row .domicilio-container .titulo-domicilio {
+        width: 40%
+    }
+    .card-img-top {
+        margin: 0 auto;
+        width: 250px;
+        height: 175px;
+    }
+    .container-xxl {
+        max-width: 100%;
+    }
+    #buscar-form{
+        margin: 7px auto;
+    }
+    #title-logo {
+        color: #ffffff;
+        position: absolute;
+        bottom: 4px;
+        font-size: 30px;
+        left: 30px;
+        font-weight: bold;
+    }
+    .accordion {
+        margin: 25px 25px;
+    }
+ }
+ @media (min-width: 1441px) and (max-width: 1800px) {
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 23%;
+    }
+    header nav .container-fluid {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-img-top {
+        margin: 0 auto;
+        width: 250px;
+        height: 175px;
+    }
+    .container-xxl {
+        max-width: 100%;
+    }  
+    #buscar-form{
+        margin: 7px auto;
+    }
+    .accordion {
+        margin: 25px 25px;
+    }
+    .subtitulo-titulo {
+        text-align: center;
+        font-size: 32px;
+        font-family: 'Agbalumo';
+    }
+ }
+ @media (min-width: 1801px) and (max-width: 2561px) {
+    #title-logo {
+        color: #ffffff;
+        position: absolute;
+        bottom: 5px;
+        font-size: 40px;
+        left: 55px;
+        font-weight: bold;
+    }
+    header nav a #logo {
+        width: 100px;
+        height: 75px;
+    }
+    .nav-link {
+        font-size: 30px;
+        padding: 5px;
+        margin: 5px 0;
+    }
+    .dropdown-item {
+        font-size: 30px;
+    }
+    .letra-span {
+        font-size: 30px;
+    }
+    .col-md-3 {
+        margin: 10px 10px;
+        width: 24%;
+    }
+    header nav .container-fluid {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-img-top {
+        margin: 0 auto;
+        width: 400px;
+        height: 275px;
+    }
+    .container-xxl {
+        max-width: 100%;
+    }
+    #buscar-form{
+        margin: 10px auto;
+    }
+    #buscar-form #buscar {
+        font-size: 28px;
+    }
+    #buscar-form button {
+        font-size: 28px;
+    }
+    .accordion {
+        margin: 25px 25px;
+    }
+    .subtitulo-titulo {
+        text-align: center;
+        font-size: 42px;
+        font-family: 'Agbalumo';
+    }
+    .accordion .accordion-item .accordion-header .accordion-button{
+        font-weight: bold;
+        font-family: 'Roboto Mono';
+        font-size: 1.9rem;
+    }
+    .card-header .card-subtitulo span {
+        color: #0026ff;
+        font-size: 1.7em;
+        padding: 1em;
+        font-weight: bold;
+    }
+    .container-carousel .gallery-wrapper .section-titulo{
+        font-size: 3rem;
+        padding-left: 15px;
+        margin-left: 1rem;
+        width: 12%;
+    }
+    #main-container .section-titulo {
+        margin-left: 1rem;
+        font-size: 3rem;
+        padding-left: 15px;
+        width: 23%;
+    }
+    .text-bg-light {
+        max-width: 1000px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .lead {
+        font-size: 35px;
+        max-width: 1000px;
+        font-family: 'Nunito', sans-serif;
+    }
+    .typedom {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: 250px;
+        height: auto;
+    }
+    .typedom .titulo-type {  
+        font-size: 20px;
+        grid-row: 1/3;
+        border-bottom: 1px solid #e8d826;
+        margin: 0;
+        padding: 0;
+    }
+    .typedom .type-dom {
+        grid-row: 2/3;
+        font-size: 23px;
+    }
+    .typedom .titulo-metragem {
+        grid-row: 3/3;
+        font-size: 28px;
+    }
+    .btn-carousel {
+        margin: 10px auto;
+        width: 11.5em;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+    }
+ }
