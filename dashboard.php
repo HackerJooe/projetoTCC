@@ -13,7 +13,7 @@
 
     $domiciliosUsuario = $domicilioDAO->getDomicilioByUsuario($usuarioData->idusuario);
 
-    // print_r($domiciliosUsuario); 
+    
 ?>
         <p class="subtitulo-titulo bold">Organizando sua vida e seu bolso!!!</p>
         
@@ -24,34 +24,76 @@
     <div id="main-container" class="container-fluid">
         <h2 class="section-titulo">DASHBOARD DOMÍCILIOS</h2>
         <strong class="info_dash">Edite ou Atualize as informações dos seus domícilios cadastrados!</strong>
-        <div class="col-md-12" id="add-domicilio-container">
+        <div class="col-md-12" id="add-domicilio-container2">
             <a href="<?= $BASE_URL ?>new_domicilio.php" class="btn card-btn">
                 <i class="fas fa-plus"> &nbsp;Novo Domicilio</i>
             </a>
         </div>
         <div class="col-md-12" id="domicilios-dashboard">
-            <table class="table">
-                <thead>
-                    <th scope="col">Id:</th>
-                    <th scope="col" class="tipo-column">Tipo Residência:</th>
-                    <th scope="col" class="desc-column">Descrição Proprietário:</th>
-                    <th scope="col" class="car-column">Caracteristicas:</th>
-                    <th scope="col">Caracter... Adicionais:</th>
-                    <th scope="col">Endereço:</th>
-                    <th scope="col">N°:</th>
-                    <th scope="col">Comp.:</th>
-                    <th scope="col">CEP:</th>
-                    <th scope="col">Cidade:</th>
-                    <th scope="col">Estado:</th>
-                    <th scope="col">M²:</th>
-                    <th scope="col">Aluguel(R$):</th>
-                    <th scope="col">IPTU(R$):</th>
-                    <th scope="col" class="action-column">AÇÕES</th>
-                </thead>
-                <tbody>
-                    <?php foreach($domiciliosUsuario as $domicilio): ?>
-                    <tr>
+            <div class="box-select">
+                <select name="selector" id="selector">
+                <option>Selecione o domícilio</option>
+                <?php foreach($domiciliosUsuario as $domicilio): ?>
+                    <option value="<?= $domicilio->iddomicilio ?>" onclick="mostrar(<?= $domicilio->iddomicilio ?>)"><?= $domicilio->iddomicilio ?> - <?= $domicilio->enderecodom ?></option>
+                <?php endforeach; ?>
+                </select>
+            </div>
+            <div id="pai">
+                
+                <?php foreach($domiciliosUsuario as $domicilio): ?>
+                    <div id="<?= $domicilio->iddomicilio ?>" class="child">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="<?= $BASE_URL?>domicilios.php?iddomicilio=<?= $domicilio->iddomicilio?>" class="btn-a-link" style="text-decoration: none;"><?=$domicilio->iddomicilio ?></a>
+                                <h2><?= $domicilio->enderecodom ?>, N°<?= $domicilio->numerodom ?>, Comp.:<?= $domicilio->complementodom ?>, CEP: <?= $domicilio->cepdom ?> </h2>
+                            </div>
+                            <hr>
+                            <div class="group-dados">
+                                <tr><b>Tipo Domicilio:</b></tr>
+                                <td><p ><?= $domicilio->tipodomicilio?></p></td>
+                                <tr><b>Descrição Domicilio:</b></tr>
+                                <td><p ><?= $domicilio->descricao ?></p></td>
+                                <tr><b>Caracteristicas Domicilio:</b></tr>
+                                <td><p><?= $domicilio->caracteristicas ?></p></td>
+                                <tr><b>Caracteristicas Adicionais:</b></tr>
+                                <td><p ><?= $domicilio->caracteristicasadc ?></p></td>
+                                <tr><b>Endereço Domicilio:</b></tr>
+                                <td><p><?= $domicilio->enderecodom ?></p></td>
+                                <tr><b>Numero Domicilio:</b></tr>
+                                <td><p><?= $domicilio->numerodom ?></p></td>
+                                <tr><b>Complemento Domicilio:</b></tr>
+                                <td><p><?= $domicilio->complementodom ?></p></td>
+                                <tr><b>CEP Domicilio:</b></tr>
+                                <td><p><?= $domicilio->cepdom ?></p></td>
+                                <tr><b>Cidade Domicilio:</b></tr>
+                                <td><p><?= $domicilio->cidadedom ?></p></td>
+                                <tr><b>Estado Domicilio:</b></tr>
+                                <td><p><?= $domicilio->estadodom ?></p></td>
+                                <tr><b>Aluguel Domicilio:</b></tr>
+                                <td><p><?= $domicilio->mensalidade ?></p></td>
+                                <tr><b>IPTU Domicilio:</b></tr>
+                                <td><p><?= $domicilio->iptu ?></p></td>
+                            </div>
+                            <div class="form-group">
+                                <a href="<?= $BASE_URL?>domicilioEdit.php?iddomicilio=<?= $domicilio->iddomicilio?>" class="table-domicilio-action">
+                                    <i class="far fa-edit edit-btn"> &nbsp;Editar</i>
+                                </a>
+                                <form action="<?= $BASE_URL?>domicilio_process.php">
+                                    <input type="hidden" name="type" value="delete">
+                                    <input type="hidden" name="iddomicilio" value="<?=$domicilio->iddomicilio ?>">
+                                    <a href="" class="table-domicilio-delete">
+                                        <i class="fas fa-times delete-btn"> &nbsp;Deletar</i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            
+<!--                 
                         <td><a href="<?= $BASE_URL?>domicilios.php?iddomicilio=<?= $domicilio->iddomicilio?>" class=""><?=$domicilio->iddomicilio ?> </a></td>
+                        
                         <td><p class="table-domicilio-tipodom"><?= $domicilio->tipodomicilio?></p></td>
                         <td><p class="table-domicilio-descricao"><?= $domicilio->descricao ?></p></td>
                         <td><p class="table-domicilio-caracteristicas"> <?= $domicilio->caracteristicas ?></p></td>
@@ -78,9 +120,9 @@
                             </form>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
+                    
                 </tbody>
-            </table>
+            </table> -->
         </div>
     </div>
 
@@ -88,3 +130,4 @@
     require_once("templates/footer.php");
 
 ?>
+<script src="<?= $BASE_URL ?>js/dashboard.js"></script>

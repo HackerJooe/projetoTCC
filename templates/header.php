@@ -58,8 +58,14 @@
         <nav id="main-navbar" class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
             <div class="container-fluid">
                 <a href="<?= $BASE_URL?>" class="navbar-brand">
-                    <img src="<?= $BASE_URL?>img/empresa/facilitasvg.svg" id="logo" alt="Facilita">
-                    <span id="title-logo">ACILITA</span>
+                    <img src="<?= $BASE_URL?>img/empresa/facilitasvg.svg" id="logo" class="roll-in-left0" alt="Facilita">
+                    <span id="title-logo" class="roll-in-left">A</span>
+                    <span id="title-logo" class="roll-in-left2">C</span>
+                    <span id="title-logo" class="roll-in-left3">I</span>
+                    <span id="title-logo" class="roll-in-left4">L</span>
+                    <span id="title-logo" class="roll-in-left5">I</span>
+                    <span id="title-logo" class="roll-in-left6">T</span>
+                    <span id="title-logo" class="roll-in-left7">A</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>

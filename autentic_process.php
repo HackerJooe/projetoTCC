@@ -22,9 +22,11 @@
         $sobrenome = filter_input(INPUT_POST,"sobrenome");
         $senha = filter_input(INPUT_POST,"senha");
         $confirmaSenha = filter_input(INPUT_POST,"confirmasenha");
+        $numerowhatsapp = filter_input(INPUT_POST,"numerowhatsapp");
+        $dddnumerowhatsapp = filter_input(INPUT_POST,"dddnumerowhatsapp");
 
         // VERIFICAÇÃO MÍNIMA DE DADOS
-        if($tipousuario && $nome && $sobrenome && $senha && $email) {
+        if(!empty($tipousuario) && !empty($nome) && !empty($sobrenome) && !empty($senha) && !empty($email) && !empty($numerowhatsapp)) {
             // VALIDA SE O TIPO DE USUARIO FOI SELECIONADO CASO CONSIGA BURLAR O SISTEMA  
            if($tipousuario > 0 && $tipousuario < 3) {
             // VALIDAR A SENHA E A CONFIRMAÇÃO DA SENHA SE ESTÃO DE ACORDO
@@ -41,6 +43,8 @@
                     $usuario->nome = $nome;
                     $usuario->sobrenome = $sobrenome;
                     $usuario->email = $email;
+                    $usuario->dddnumerowhatsapp = $dddnumerowhatsapp;
+                    $usuario->numerowhatsapp = $numerowhatsapp;
                     $usuario->senha = $finalSenha;
                     $usuario->token = $usuarioToken;
 

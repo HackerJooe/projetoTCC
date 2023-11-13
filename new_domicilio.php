@@ -12,7 +12,7 @@
     <div id="main-container" class="container-fluid">
        <div class="offset-md-4 col-md-4 new-domicilio-container" id="add-domicilio-form">
         <h2>Adicionar Novo Domicílio</h2>
-        <p>Cadastre sua residência para divulgarmos para você!</p>
+        <p class="page-description">Cadastre sua residência para divulgarmos para você!</p>
         <form action="<?= $BASE_URL ?>domicilio_process.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="type" id="type" value="create_domicilio">
             <input type="hidden" name="idusuario" value="<?= $usuarioData->idusuario?>">
@@ -25,13 +25,9 @@
                 <textarea class="form-control" name="descricao" id="descricao" rows="5" placeholder="Casa Térrea, possue três quartos, dois banheiros, cozinha americana, garagem para um veículo, portão automático, etc..."></textarea>
             </div>
             <div class="form-group">
-                <label for="imagemdomicilio">Foto Frente do Domicilio:</label>
+                <label for="imagemdomicilio">Foto Frente do Domicilio(CAPA):</label>
                 <input type="file" class="form-control-file" name="imagemdomicilio" id="imagemdomicilio">
             </div>
-            <!-- <div class="form-group">
-                <label for="filmagemdomicilio">Filmagem de Domícilio:</label>
-                <input type="file" class="form-control-file" name="filmagemdomicilio" id="filmagemdomicilio">
-            </div> -->
             <div class="form-group">
                 <!-- checkbox das caracteristicas possiveis dos domicilios -->
                 <div class="row row-cols-3">
@@ -40,7 +36,6 @@
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="caracteristicas[]" value="garagem">
                             Garagem
-
                         </label>
                     </div>
                     <div class="form-check col-auto">
@@ -168,7 +163,7 @@
                 <input type="number" class="form-control" name="metragem" id="metragem" placeholder="45.2">
             </div>
             <hr>
-            <p>Dados de Endereço do Domicílio</p>
+            <h2>Dados de Endereço do Domicílio</h2>
             <div class="form-group">
                 <label for="enderecodom">Endereco:</label>
                 <input type="text" class="form-control" name="enderecodom" id="enderecodom" placeholder="Rua Blablabla">
@@ -229,8 +224,9 @@
                 <label for="iptu">IPTU(R$):</label>
                 <input type="text" class="form-control" name="iptu" id="iptu" placeholder="100,00">
             </div>
-            
-            <input type="submit" value="Adicionar Domicilio" class="btn form-btn card-btn">
+            <div class="form-group-btn">
+                <input type="submit" value="Adicionar Domicilio" class="btn form-btn card-btn">
+            </div>
 
 
         

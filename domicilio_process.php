@@ -20,28 +20,28 @@
 
     if($type == "create_domicilio" && $usuarioData->tipousuario == 1 ) {
 
-        $separador = ", ";
-         // CAPTURAR OS DADOS NO INPUT POST
-         $idusuario = filter_input(INPUT_POST, "idusuario");
-         $tipodomicilio = filter_input(INPUT_POST, "tipodomicilio");
-         $descricao = filter_input(INPUT_POST, "descricao");
-        //  $caracteristicas = filter_input(INPUT_POST, "caracteristicas[]"); 
-         $caracteristicas = $_POST['caracteristicas'];
-         $strCaracteristicas = implode($separador, $caracteristicas);
-         $caracteristicasadc = filter_input(INPUT_POST, "caracteristicasadc"); 
-         $metragem = filter_input(INPUT_POST, "metragem");
-         $enderecodom = filter_input(INPUT_POST, "enderecodom");
-         $numerodom = filter_input(INPUT_POST, "numerodom");
-         $complementodom = filter_input(INPUT_POST, "complementodom");
-         $cepdom = filter_input(INPUT_POST, "cepdom");
-         $cidadedom = filter_input(INPUT_POST, "cidadedom");
-         $estadodom = filter_input(INPUT_POST, "estadodom");
-         $mensalidade = filter_input(INPUT_POST, "mensalidade");
-         $iptu = filter_input(INPUT_POST, "iptu");
-
         $domicilio = new Domicilio();
+        $tipodomicilio = filter_input(INPUT_POST, "tipodomicilio");
+        $descricao = filter_input(INPUT_POST, "descricao");
+        $enderecodom = filter_input(INPUT_POST, "enderecodom");
+        $numerodom = filter_input(INPUT_POST, "numerodom");
+        $cidadedom = filter_input(INPUT_POST, "cidadedom");
+        $estadodom = filter_input(INPUT_POST, "estadodom");
+        $cepdom = filter_input(INPUT_POST, "cepdom");
+        $idusuario = filter_input(INPUT_POST, "idusuario"); 
 
         if(!empty($tipodomicilio) && !empty($descricao) && !empty($enderecodom) && !empty($numerodom) && !empty($cidadedom) && !empty($estadodom) && !empty($cepdom) && !empty($idusuario)) {
+              $separador = ", ";
+            // CAPTURAR OS DADOS NO INPUT POST
+            
+            $caracteristicas = $_POST['caracteristicas'];
+            $strCaracteristicas = implode($separador, $caracteristicas);
+            $caracteristicasadc = filter_input(INPUT_POST, "caracteristicasadc"); 
+            $metragem = filter_input(INPUT_POST, "metragem");
+            $complementodom = filter_input(INPUT_POST, "complementodom");
+            $mensalidade = filter_input(INPUT_POST, "mensalidade");
+            $iptu = filter_input(INPUT_POST, "iptu");
+
             $domicilio->usuario_id = $idusuario;
             $domicilio->tipodomicilio = $tipodomicilio;
             $domicilio->descricao = $descricao;

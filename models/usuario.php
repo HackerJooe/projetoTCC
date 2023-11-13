@@ -11,6 +11,14 @@
         public $bio;
         public $id_endereco;
         public $imagem;
+        public $numerowhatsapp;
+        public $dddnumerowhatsapp;
+        public $endereco;
+        public $numero;
+        public $complemento;
+        public $cep;
+        public $cidade;
+        public $estado;
 
         public function pegarNomeCompleto($usuarios) {
             return $usuarios->nome . " " . $usuarios->sobrenome;
@@ -36,6 +44,8 @@
         public function criar(Usuarios $usuarios, $authUsuario = false);
 
         public function update(Usuarios $usuarios, $redirect);
+        
+        public function updateEndereco(Usuarios $usuarios, $redirect);
 
         public function verifyToken ($protected = false);
 

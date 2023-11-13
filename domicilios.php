@@ -45,7 +45,9 @@
     $arraySeparadoAdc = explode(", ", $arrayAdc1);
     //print_r($arrayseparado);
     //print_r($arraySeparadoAdc);
-    
+    if(empty($domicilio->imagemdomicilio)){
+        $domicilio->imagemdomicilio = "default.png";
+    }
 ?>
 <div id="main-container" class="container-fluid">
     <div class="row">

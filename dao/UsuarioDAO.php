@@ -27,23 +27,32 @@
             $usuarios->senha = $data['senha'];
             $usuarios->token = $data['token'];
             $usuarios->bio = $data['bio'];
-            $usuarios->id_endereco = $data['id_endereco'];
             $usuarios->imagem = $data['imagem'];
+            $usuarios->dddnumerowhatsapp = $data['dddnumerowhatsapp'];
+            $usuarios->numerowhatsapp = $data['numerowhatsapp'];
+            // $usuarios->endereco = $data['endereco'];
+            // $usuarios->numero = $data['numero'];
+            // $usuarios->complemento = $data['complemento'];
+            // $usuarios->cep = $data['cep'];
+            // $usuarios->cidade = $data['cidade'];
+            // $usuarios->estado = $data['estado'];
             
             return $usuarios;
         }
 
         public function criar(Usuarios $usuarios, $authUsuario = false) {
             // TRATAMENTO DE OBJETO PARA INSERÇÃO AO BANCO DE DADOS
-            $stmt = $this->conn->prepare("INSERT INTO usuarios(tipousuario, nome, sobrenome, email, senha, token
-                                            ) VALUES (:tipousuario, :nome, :sobrenome, :email, :senha, :token) ");
+            $stmt = $this->conn->prepare("INSERT INTO usuarios(tipousuario, nome, sobrenome, email, senha, token, dddnumerowhatsapp, numerowhatsapp
+                                            ) VALUES (:tipousuario, :nome, :sobrenome, :email, :senha, :token, :dddnumerowhatsapp, :numerowhatsapp) ");
             $stmt->bindParam(":tipousuario", $usuarios->tipousuario);
             $stmt->bindParam(":nome", $usuarios->nome);
             $stmt->bindParam(":sobrenome", $usuarios->sobrenome);
             $stmt->bindParam(":email", $usuarios->email);
             $stmt->bindParam(":senha", $usuarios->senha);
             $stmt->bindParam(":token", $usuarios->token);
-
+            $stmt->bindParam(":dddnumerowhatsapp", $usuarios->dddnumerowhatsapp);
+            $stmt->bindParam(":numerowhatsapp", $usuarios->numerowhatsapp);
+            
             $stmt->execute();
 
             // AUTENTICAR O USUARIO CASO SEJA VALIDADO
@@ -61,7 +70,9 @@
                 email = :email,
                 token = :token,
                 bio = :bio,
-                imagem = :imagem
+                imagem = :imagem,
+                dddnumerowhatsapp = :dddnumerowhatsapp,
+                numerowhatsapp = :numerowhatsapp
                 WHERE idusuario = :idusuario;
             ");
 
@@ -72,6 +83,39 @@
             $stmt->bindParam(":token", $usuarios->token);
             $stmt->bindParam(":imagem", $usuarios->imagem);
             $stmt->bindParam(":idusuario", $usuarios->idusuario);
+            $stmt->bindParam(":dddnumerowhatsapp", $usuarios->dddnumerowhatsapp);
+            $stmt->bindParam(":numerowhatsapp", $usuarios->numerowhatsapp);
+
+
+
+            $stmt->execute();
+
+            if($redirect) {
+
+                // REDIRECIONAMENTO PARA O PERFIL DO USUÁRIO APÓS SALVAR O TOKEN DELE NA SESSÃO
+                $this->message->inseriMessagem("Dados Atualizados com Sucesso!", "sucess", "editprofile.php");
+            }
+        }
+        public function updateEndereco(Usuarios $usuarios, $redirect = true) {
+
+            $stmt = $this->conn->prepare("UPDATE usuarios SET 
+                endereco = :endereco,
+                numero = :numero,
+                complemento = :complemento,
+                cep = :cep,
+                cidade = :cidade,
+                estado = :estado
+                WHERE idusuario = :idusuario;
+            ");
+
+            $stmt->bindParam(":endereco", $usuarios->endereco);
+            $stmt->bindParam(":numero", $usuarios->numero);
+            $stmt->bindParam(":complemento", $usuarios->complemento);
+            $stmt->bindParam(":cep", $usuarios->cep);
+            $stmt->bindParam(":cidade", $usuarios->cidade);
+            $stmt->bindParam(":estado", $usuarios->estado);
+            $stmt->bindParam(":idusuario", $usuarios->idusuario);
+            
 
 
 

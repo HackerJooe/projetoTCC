@@ -10,4 +10,4 @@ document.documentElement.className = 'lightTheme';
                 }
 
             }
-        window.addEventListener("load",inicia);
+        // window.addEventListener("load",inicia);

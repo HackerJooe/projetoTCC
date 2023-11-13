@@ -22,15 +22,23 @@
         $sobrenome = filter_input(INPUT_POST,"sobrenome");
         $email = filter_input(INPUT_POST,"email");
         $bio = filter_input(INPUT_POST,"bio");
+        $dddnumerowhatsapp = filter_input(INPUT_POST, "dddnumerowhatsapp");
+        $numerowhatsapp = filter_input(INPUT_POST, "numerowhatsapp");
 
+        $qtdnumeros = strlen(trim($numerowhatsapp));
         // CRIA UM NOVO OBJETO USUARIO
         $usuarios = new Usuarios();
+        
 
         // PREENCHER OS DADOS DO USUARIO
         $usuarioData->nome = $nome;
         $usuarioData->sobrenome = $sobrenome;
         $usuarioData->email = $email;
         $usuarioData->bio = $bio;
+        $usuarioData->dddnumerowhatsapp = $dddnumerowhatsapp;
+        $usuarioData->numerowhatsapp = $numerowhatsapp;
+
+       
 
         // UPLOAD DA IMAGEM DO USUÁRIO
         if(isset($_FILES["imagem"]) && !empty($_FILES["imagem"]["tmp_name"])) {
@@ -52,11 +60,14 @@
             } else {
               $message->inseriMessagem("Tipo de arquivo não suportado. Favor enviar jpeg, jpg ou png!", "error", "back");
             }
-
-      
         }
 
-        $usuarioDAO->update($usuarioData);
+        if($qtdnumeros == 9) {
+          print_r($qtdnumeros);
+          $usuarioDAO->update($usuarioData);
+        } else {
+          $message->inseriMessagem("Número do Whatsapp com caracteres insuficientes/incorretos", "error", "back");
+        }
 
         // ATUALIZAR SENHA DO USUARIO
     } else if($type === "alteraSenha") {
@@ -84,7 +95,37 @@
       }
 
       // ATUALIZAR FOTO DE PERFIL DO USUÁRIO
-    }  else {
+    } else if($type === "updateEndereco") {
+
+        // RESGATA OS DADOS DO USUÁRIO QUE ESTÁ LOGADO E EXECUTOU A FUNCAO
+        $usuarioData = $usuarioDAO->verifyToken();
+
+        // PEGA OS DADOS DO INPUT POST UPDATE ENVIADOS
+        $endereco = filter_input(INPUT_POST,"endereco");
+        $numero = filter_input(INPUT_POST, "numero");
+        $complemento = filter_input(INPUT_POST, "complemento");
+        $cep = filter_input(INPUT_POST, "cep");
+        $cidade = filter_input(INPUT_POST, "cidade");
+        $estado = filter_input(INPUT_POST, "estado");
+
+        // CRIA UM NOVO OBJETO USUARIO
+        $usuarios = new Usuarios();
+
+        // PREENCHER OS DADOS DO USUARIO
+        $usuarioData->endereco = $endereco;
+        $usuarioData->numero = $numero;
+        $usuarioData->complemento = $complemento;
+        $usuarioData->cep = $cep;
+        $usuarioData->cidade = $cidade;
+        $usuarioData->estado = $estado;
+        if (!empty($endereco) && !empty($numero) && !empty($complemento) && !empty($cep) && !empty($cidade) && !empty($estado)) {
+          $usuarioDAO->updateEndereco($usuarioData);
+          $message->inseriMessagem("Endereço cadastrado/atualizado com sucesso!!!", "sucess", "back");
+        } else {
+          $message->inseriMessagem("Para o cadastro de endereço, todos os campos devem sem preenchidos", "error", "back");
+        }
+     
+    } else {
         $message->inseriMessagem("Informações inválidas!", "error", "logout.php");
     }
 
